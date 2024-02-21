@@ -1,0 +1,33 @@
+{{ define "_index"}}
+{{ template "_head"}}
+<div class="container">
+    <a name="" id="" class="btn btn-primary" href="/insert" role="button">Add Acount</a>
+    <a name="" id="" class="btn btn-warning" href="http://localhost/phpmyadmin" role="button" target="_blank">Bd</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Comments</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range. }}
+            <tr>
+                <td>{{.Name}}</td>
+                <td>{{.Amount}}</td>
+                <td>{{.Comment}}</td>
+                <td>{{.Date}}</td>
+                <td>
+                    <a name="" id="" class="btn btn-warning" href="/update?id={{.Id}}" role="button">Update</a> |
+                    <a name="" id="" class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
+                </td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+</div>
+{{ template "_foot"}}
+{{end}}
